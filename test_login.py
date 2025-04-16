@@ -5,6 +5,11 @@ import pytest
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
+
+    # Might be needed for WSL
+    options = webdriver.ChromeOptions() 
+    options.headless = True
+
     yield driver
     driver.quit()
 
